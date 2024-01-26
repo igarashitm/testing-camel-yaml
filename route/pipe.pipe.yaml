@@ -1,0 +1,17 @@
+apiVersion: camel.apache.org/v1
+kind: Pipe
+metadata:
+  name: pipe-2117
+spec:
+  source:
+    ref:
+      apiVersion: camel.apache.org/v1
+      kind: Kamelet
+      name: timer-source
+      properties:
+        message: hello
+  sink:
+    ref:
+      apiVersion: camel.apache.org/v1
+      kind: Kamelet
+      name: log-sink

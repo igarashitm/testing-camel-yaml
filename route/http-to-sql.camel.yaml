@@ -1,0 +1,27 @@
+- route:
+    id: route-3824
+    from:
+      id: from-6561
+      uri: netty-http
+      parameters:
+        host: 0.0.0.0
+        protocol: http
+      steps:
+        - to:
+            id: to-2086
+            uri: sql
+            parameters:
+              dataSource: "#pgsqlDataSource"
+              query: select * from actor
+        - marshal:
+            id: marshal-5080
+            json: {}
+- beans:
+    - name: pgsqlDataSource
+      properties:
+        databaseName: dvdrental
+        password: pgsql
+        portNumber: "5432"
+        serverName: 127.0.0.1
+        user: postgres
+      type: org.postgresql.ds.PGSimpleDataSource
